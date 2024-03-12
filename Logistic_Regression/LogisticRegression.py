@@ -63,7 +63,7 @@ class LogisticRegression:
                 # weights and bias term, then this is just a weighted sum of the input x adding the bias
                 # now for logisitc regression we use a sigmoid function in order to calculate predictions
                 exp_arg =  np.dot(X, self.weights) + self.bias
-                y_predicted = 1 / (1 + np.exp(exp_arg))
+                y_predicted = 1 / (1 + np.exp(-exp_arg))
 
                 # --- Calculating error ---
                 # We follow the same strategy that from linear regression
@@ -98,7 +98,7 @@ class LogisticRegression:
             _numpy array of predictions calculated_
         """
         linear_pred = np.dot(X, self.weights) + self.bias
-        prediction = 1 / (1 + np.exp(linear_pred))
+        prediction = 1 / (1 + np.exp(-linear_pred))
         # we get values between 0 and 1 and we want to get 0 or 1 
         # considering a threshold
         class_predictions = [0 if y<=0.5 else 1 for y in prediction]

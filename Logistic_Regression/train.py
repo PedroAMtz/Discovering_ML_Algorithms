@@ -26,7 +26,7 @@ dummy_data = datasets.load_breast_cancer()
 X, y = dummy_data.data, dummy_data.target
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
-lr_model = LogisticRegression(lr=0.1)
+lr_model = LogisticRegression(lr=0.001)
 
 if __name__ == "__main__":
 
