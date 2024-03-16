@@ -35,12 +35,14 @@ Log loss, also known as cross-entropy loss, is a commonly used loss function in 
 
 For a binary classification problem, the log loss is calculated using the following formula:
 
-\[ \text{Log Loss} = - \frac{1}{N} \sum_{i=1}^{N} \left( y_i \log(p_i) + (1 - y_i) \log(1 - p_i) \right) \]
+$$
+\text{Log Loss} = - \frac{1}{N} \sum_{i=1}^{N} \left( y_i \log(p_i) + (1 - y_i) \log(1 - p_i) \right) 
+$$
 
 Where:
-- \( N \) is the number of samples.
-- \( y_i \) is the actual label of the \( i \)-th sample (0 or 1).
-- \( p_i \) is the predicted probability that the sample belongs to the positive class.
+- $ N $ is the number of samples.
+- $ y_i $ is the actual label of the $ i $-th sample (0 or 1).
+- $ p_i $ is the predicted probability that the sample belongs to the positive class.
 
 For multiclass classification, the formula is modified accordingly.
 
@@ -73,19 +75,29 @@ Logistic regression is a popular classification algorithm that uses a logistic f
 
 2. **Forward Propagation:**
    - Compute the logits (linear combination of features and coefficients) for each sample:
-     \[ z = \theta_0 + \theta_1 x_1 + \theta_2 x_2 + \ldots + \theta_n x_n \]
+  $$
+    z = \theta_0 + \theta_1 x_1 + \theta_2 x_2 + \ldots + \theta_n x_n
+  $$
    - Apply the logistic (sigmoid) function to the logits to obtain the predicted probabilities:
-     \[ p = \frac{1}{1 + e^{-z}} \]
+  $$
+    p = \frac{1}{1 + e^{-z}} 
+  $$
 
 3. **Compute Log Loss:**
    - Calculate the log loss for the predicted probabilities using the actual labels:
-     \[ \text{Log Loss} = - \frac{1}{N} \sum_{i=1}^{N} \left( y_i \log(p_i) + (1 - y_i) \log(1 - p_i) \right) \]
+  $$
+     \text{Log Loss} = - \frac{1}{N} \sum_{i=1}^{N} \left( y_i \log(p_i) + (1 - y_i) \log(1 - p_i) \right)
+  $$
 
 4. **Backpropagation:**
    - Compute the gradient of the log loss with respect to each model parameter using chain rule:
-     \[ \frac{\partial \text{Log Loss}}{\partial \theta_j} = \frac{1}{N} \sum_{i=1}^{N} (p_i - y_i) x_{ij} \]
+  $$
+    \frac{\partial \text{Log Loss}}{\partial \theta_j} = \frac{1}{N} \sum_{i=1}^{N} (p_i - y_i) x_{ij} 
+  $$
    - Update the model parameters using a gradient descent optimization algorithm:
-     \[ \theta_j := \theta_j - \alpha \frac{\partial \text{Log Loss}}{\partial \theta_j} \]
+  $$
+     \theta_j := \theta_j - \alpha \frac{\partial \text{Log Loss}}{\partial \theta_j}
+  $$
    - Where \( \alpha \) is the learning rate controlling the step size of parameter updates.
 
 5. **Repeat:**
