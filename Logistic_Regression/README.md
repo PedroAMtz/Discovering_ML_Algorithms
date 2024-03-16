@@ -75,29 +75,29 @@ Logistic regression is a popular classification algorithm that uses a logistic f
 
 2. **Forward Propagation:**
    - Compute the logits (linear combination of features and coefficients) for each sample:
-  $$
+$$
     z = \theta_0 + \theta_1 x_1 + \theta_2 x_2 + \ldots + \theta_n x_n
-  $$
+$$
    - Apply the logistic (sigmoid) function to the logits to obtain the predicted probabilities:
-  $$
+$$
     p = \frac{1}{1 + e^{-z}} 
-  $$
+$$
 
 3. **Compute Log Loss:**
    - Calculate the log loss for the predicted probabilities using the actual labels:
-  $$
+$$
      \text{Log Loss} = - \frac{1}{N} \sum_{i=1}^{N} \left( y_i \log(p_i) + (1 - y_i) \log(1 - p_i) \right)
-  $$
+$$
 
 4. **Backpropagation:**
    - Compute the gradient of the log loss with respect to each model parameter using chain rule:
-  $$
+$$
     \frac{\partial \text{Log Loss}}{\partial \theta_j} = \frac{1}{N} \sum_{i=1}^{N} (p_i - y_i) x_{ij} 
-  $$
+$$
    - Update the model parameters using a gradient descent optimization algorithm:
-  $$
+$$
      \theta_j := \theta_j - \alpha \frac{\partial \text{Log Loss}}{\partial \theta_j}
-  $$
+$$
    - Where \( \alpha \) is the learning rate controlling the step size of parameter updates.
 
 5. **Repeat:**
